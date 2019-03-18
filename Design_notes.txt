@@ -1,0 +1,76 @@
+
+
+Completed functionality
+1) load files into DB
+    - used H2 DB
+    - implemented with liquibase
+    - files loaded on start up via liquibase
+2) DB - ORM
+    - Used JPA for mapping entities
+3) Rest web services
+    - used Spring Web
+    - Return ResponseEntities
+    - Exception handling :
+        - return HTTP error codes in ResponseEntity
+        - used ControllerAdvice centralised exceptionHandloing on controllers
+4) Algorithm to calculate shortest path impleted with Dijkstra algorithm
+    - Shortest path is calculated from any position in the graph
+    - 'hanging' nodes were removed from DB - need to implement at later stage
+    - distance is calculated with and without traffic delays - different routes are taken depending on traffic
+5) Travelling times have been calculated with & without traffic delays
+6) Swagger
+    - Result of the algorithm is returned in a PlanetHopper json object & includes the following data
+        - number of hops
+        - nodes travelled
+        - shortest distance
+        - time to travel
+    - services exposed include
+        - travelPlanner
+        - CRUD services for some of the data
+
+Not completed:
+1) XSD design
+2) Linking of all the services to UI
+
+
+
+Tech Stack used
+* Java8
+* JPA
+* Liquibase
+* H2
+* React
+* SpringBoot
+* Spring
+
+
+Improvements given time:
+
+Security:
+No consideration was given to secuity - this can be implemented using Spring secuity & JWT tokens
+
+Package into Docker using the maven plugin
+
+General:
+* map entities to DTO's - using something like Dozer or beanIO
+* EHCache or some caching mechanism - limit number of calls to DB in a non-In-Mem DB
+*
+
+
+Testing
+*  Use SpringBootTest to do some integration testing from Controllers
+* Use Mockito to do proper test cases and cover edge cases
+* increase number of permutations around calculations -
+
+
+
+Frontend:
+* functionality needs to be split into separate files for classes, services etc
+* add input fields and display results on form
+* drop down boxes to display sources and destinations
+* implement validation , error handling & error messages
+* implement test cases on FE functionality
+
+
+
+

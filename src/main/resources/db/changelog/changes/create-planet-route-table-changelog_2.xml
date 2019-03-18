@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet author="robin" id="1">
+        <createTable tableName="PLANET_DATA">
+            <column autoIncrement="true" name="ROUTE_ID" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="PLANET_ORIGIN" type="VARCHAR(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PLANET_DESTINATION" type="VARCHAR(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DISTANCE" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TRAFFIC_DELAY" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

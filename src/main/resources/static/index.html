@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DSC Assessment</title>
+</head>
+<body>
+<div id='root'></div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+<script src="https://fb.me/react-15.0.1.js"></script>
+<script src="https://fb.me/react-dom-15.0.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+<script type="text/babel">
+
+    var Planet = React.createClass({
+        render: function () {
+            return (
+                <tr>
+                    <td>{this.props.planet.planetNode}</td>
+                    <td>{this.props.planet.planetName}</td>
+                </tr>);
+        }
+    });
+
+    var PlanetTable = React.createClass({
+        render: function () {
+            var rows = [];
+            this.props.planets.forEach(function (planet) {
+                rows.push(<Planet planet={planet}/>);
+            });
+            return (
+                <div className="container">
+                    <table className="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Planet Code</th>
+                            <th>Planet Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>{rows}</tbody>
+                    </table>
+                    <div><button className="btn btn-info" >submit</button></div>
+                </div>
+            );
+        }
+    });
+
+    var LoadApp = React.createClass({
+
+        loadPlanetsFromServer: function () {
+            var self = this;
+            fetch('http://localhost:8080/v1/galaxy/planets/all')
+                .then(res => res.json())
+                .then(result => {
+                    self.setState({planets: result})
+                })
+        },
+
+        getInitialState: function () {
+            return {planets: []};
+        },
+
+        componentDidMount: function () {
+            this.loadPlanetsFromServer();
+        },
+
+        render() {
+            return (<PlanetTable planets={this.state.planets}/>);
+        }
+
+    });
+
+    ReactDOM.render(
+        <LoadApp/>, document.getElementById('root')
+    );
+
+</script>
+
+
+</body>
+</html>
