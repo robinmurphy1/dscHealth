@@ -36,7 +36,7 @@ CRUD services are available as well as the service to calculate shortest path be
 
 Run from the project directory:  mvn clean install
 
-This creates a jar file that can be run with the following command: java -jar stdbank-0.0.1-SNAPSHOT.jar
+This creates a jar file that can be run with the following command: java -jar asessment-0.0.1-SNAPSHOT.jar
 
 Or run the app from AssetmentApplication.java
 
