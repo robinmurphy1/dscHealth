@@ -107,7 +107,7 @@ public class GalacticalDataImpl implements GalacticalData {
     //This function is so rocket man can find the shortest way back from where he came from
     public List<PlanetData> mergePlanetData(boolean traffic) {
 
-        //create deep copy
+        //create clone
         List<PlanetData> planetDataList;
         planetDataList = getPlanetData(traffic).stream()
                 .map(p -> new PlanetData(p.getPlanetNode(), p.getPlanetOrigin(), p.getPlanetDestination(), p.getDistance(), p.getTrafficDelay()))
