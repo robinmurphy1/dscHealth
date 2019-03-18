@@ -26,6 +26,7 @@ React
 
 ----------------------------------------------------------------------------------------------------------------
 
+Inputs for the 'source' & 'destination' should be the NodeCode ie A, B, C, BB, DD etc
 
 Swagger has been implemented for testing of the REST services : http://localhost:8080/swagger-ui.html 
 
